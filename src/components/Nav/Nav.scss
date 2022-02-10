@@ -1,0 +1,12 @@
+.nav{
+  width: 100vw;
+  height: 10vh;
+  border-bottom: 1px solid black;
+  &__left{
+    width: 100px;
+    height: 100px;
+    &__img{
+      width: 20px;
+    }
+  }
+}
