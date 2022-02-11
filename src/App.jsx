@@ -18,24 +18,14 @@ function App() {
     };
     useEffect(() => getMoviesApi(), []);
     console.log(moviesApi);
+
     const imageUrl = `https://image.tmdb.org/t/p/original${moviesApi.poster_path}`;
+
     return (
         <div className="App">
             <Nav />
-            {moviesApi ? moviesApi.map((movie) => {
-                return (
-                    <div>
-                        <p>{movie.id}</p>
-                        <p>{movie.release_date}</p>
-                        <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" className="imgageForPoster" />
-                    </div>
-                )
-            }) : null}
-            {openInfo && <Info />}
-            {moviesApi ? <p>{moviesApi.id}</p> : null}
-            {moviesApi.release_date}
+            {openInfo && <Info movieData={moviesApi}/>}
             <button onClick={() => setOpenInfo((prevOpenInfo) => !prevOpenInfo)}>OPEN INFO</button>
-            <img src={imageUrl} alt="" className="imgageForPoster" />
         </div>
     );
 }
