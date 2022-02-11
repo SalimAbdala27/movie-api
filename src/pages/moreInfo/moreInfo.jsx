@@ -4,7 +4,6 @@ import "./moreInfo.scss";
 
 const MoreInfo = () => {
 
-
   return (
     <div>MoreInfo</div>
   )

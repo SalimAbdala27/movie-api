@@ -9,7 +9,7 @@ import {
 
 
 const Movie = (props) => {
-    const { movie } = props;
+    const { movie,  setOpenInfo, openInfo} = props;
 
     return (
         <div className="movieItem">
@@ -17,8 +17,8 @@ const Movie = (props) => {
             <section className="movie-info">
                 <h3 className="movie-title">{ movie.original_title }</h3>
                 <p className="movie-text">{ movie.overview }</p>
-                <Link to="/moreInformation" >
-                    <button className="more-info">More Information</button>
+                <Link exact to="/moreInformation" >
+                    <button onClick={() => setOpenInfo(false)} className="more-info">More Information</button>
                 </Link>
             </section>
         </div>
