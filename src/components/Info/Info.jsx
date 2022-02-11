@@ -7,7 +7,7 @@ const Info = (props) => {
         <div className="movieList">
             {movieData ? movieData.map((movie) => {
                 return (
-                    <div>
+                    <div key={movie.id}>
                         <Movie movie={movie} />
                     </div>
                 )
