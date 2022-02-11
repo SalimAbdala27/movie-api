@@ -1,5 +1,11 @@
-import React from 'react'
+import React from 'react';
 import "./Movie.scss";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 
 const Movie = (props) => {
@@ -11,6 +17,9 @@ const Movie = (props) => {
             <section className="movie-info">
                 <h3 className="movie-title">{ movie.original_title }</h3>
                 <p className="movie-text">{ movie.overview }</p>
+                <Link to="/moreInformation" >
+                    <button className="more-info">More Information</button>
+                </Link>
             </section>
         </div>
     )

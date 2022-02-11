@@ -2,6 +2,14 @@ import "./App.scss";
 import React, { useState, useEffect } from "react";
 import Nav from "./components/Nav/Nav";
 import Info from "./components/Info/Info";
+// import { Router } from "react-router";
+import MoreInfo from "./pages/moreInfo/moreInfo";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 function App() {
     const [openInfo, setOpenInfo] = useState(false);
@@ -37,12 +45,19 @@ function App() {
     const imageUrl = `https://image.tmdb.org/t/p/original${moviesApi.poster_path}`;
 
     return (
-        <div className="App">
-            <Nav />
-            {openInfo && <Info movieData={moviesApi}/>}
-            <button onClick={() => latest()}>Latest films</button>
-            <button onClick={() => nowPlaying()}>OPEN INFO</button>
-        </div>
+        <Router>
+            <Switch>
+                <div className="App">
+                    <Nav />
+                    {openInfo && <Info movieData={moviesApi}/>}
+                    <button onClick={() => latest()}>Latest films</button>
+                    <button onClick={() => nowPlaying()}>OPEN INFO</button>
+                    <Route path="/moreInformation">
+                        <MoreInfo />
+                    </Route>
+                </div>
+            </Switch>
+        </Router>
     );
 }
 
