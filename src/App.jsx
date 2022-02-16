@@ -50,15 +50,13 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <button onClick={latest}>Latest films</button>
-        <button onClick={nowPlaying}>OPEN INFO</button>
         <Nav />
         <Switch>
           <Route path="/moreInformation">
             <MoreInfo />
           </Route>
           <Route path="/">
-            <Home />
+            <Home latest={latest} nowPlaying={nowPlaying} />
           </Route>
         </Switch>
         {/* hide these buttons with state from the setopeninfo prior */}
