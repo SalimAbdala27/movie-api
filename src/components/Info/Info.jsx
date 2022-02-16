@@ -7,8 +7,8 @@ const Info = (props) => {
         <div className="movieList">
             {movieData ? movieData.map((movie) => {
                 return (
-                    <div key={movie.id}>
-                        <Movie openInfo={openInfo} setOpenInfo={setOpenInfo}  movie={movie} />
+                    <div>
+                        <Movie openInfo={openInfo} setOpenInfo={setOpenInfo}  movie={movie} key={movie.id} />
                     </div>
                 )
             }) : null}

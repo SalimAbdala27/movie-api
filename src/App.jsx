@@ -52,7 +52,7 @@ function App() {
       <div className="App">
         <Nav />
         <Switch>
-          <Route path="/moreInformation">
+          <Route path="/moreInformation/:movieId">
             <MoreInfo />
           </Route>
           <Route path="/">
