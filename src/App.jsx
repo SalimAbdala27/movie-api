@@ -14,15 +14,18 @@ function App() {
   const nowPlaying = () => {
     setFilter("/now_playing");
     setOpenInfo((prevOpenInfo) => !prevOpenInfo);
+    console.log("running now playing ")
   };
 
   const latest = () => {
     setFilter("/top_rated");
     setOpenInfo((prevOpenInfo) => !prevOpenInfo);
+    console.log("running latest")
   };
   console.log(filter);
 
   const getMoviesApi = () => {
+    console.log("making api call");
     fetch(
       `https://api.themoviedb.org/3/movie${filter}?api_key=66a06838a741ef3a28ebc20e4f61191e`
     )
@@ -32,8 +35,13 @@ function App() {
       })
       .catch((err) => console.log(err));
   };
-  useEffect(() => nowPlaying, [filter]);
-  useEffect(() => latest, [filter]);
+  useEffect(() => { 
+    if (filter === "/top_rated") {
+      latest()
+    } else{
+      nowPlaying()
+    } 
+    getMoviesApi()} , [filter]);
   useEffect(() => getMoviesApi(), []);
   console.log(moviesApi);
 
@@ -42,6 +50,8 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <button onClick={latest}>Latest films</button>
+        <button onClick={nowPlaying}>OPEN INFO</button>
         <Nav />
         <Switch>
           <Route path="/moreInformation">
@@ -59,8 +69,6 @@ function App() {
             movieData={moviesApi}
           />
         )}
-        <button onClick={() => latest()}>Latest films</button>
-        <button onClick={() => nowPlaying()}>OPEN INFO</button>
       </div>
     </Router>
   );
