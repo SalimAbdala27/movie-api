@@ -83,16 +83,16 @@ a:hover {
         margin-bottom: 13px;
         position: relative;
 
-        span {
-            position: absolute;
-            top: 3px;
-            margin-left: 12px;
-            background: #c4af3d;
-            border-radius: 5px;
-            color: #544c21;
-            font-size: 14px;
-            padding: 0px 4px;
-        }
+    }
+    .duration{
+        position: absolute;
+        // top: 3px;
+        // margin-left: 12px;
+        background: #c4af3d;
+        border-radius: 5px;
+        color: #544c21;
+        font-size: 14px;
+        padding: 0px 4px;
     }
 
     .title2 {
@@ -103,7 +103,9 @@ a:hover {
     }
 
     .likes {
-        margin-left: 24px;
+        // margin-left: 24px;
+        position: absolute;
+        top: 250px;
     }
 
     .likes:before {
@@ -120,14 +122,20 @@ a:hover {
     font-size: 16px;
     line-height: 26px;
     color: #b1b0ac;
+    display: grid;
+    grid-template-columns: 220px 400px;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "columnOne columnTwo";
 }
-
 .column1 {
+    grid-area: columnOne;
     padding-left: 50px;
     padding-top: 120px;
-    width: 220px;
+    width: 210px;
     float: left;
     text-align: center;
+    overflow-wrap: anywhere;
 }
 
 .tag {
@@ -145,6 +153,7 @@ a:hover {
 }
 
 .column2 {
+    grid-area: columnTwo;
     padding-left: 41px;
     padding-top: 30px;
     margin-left: 20px;
